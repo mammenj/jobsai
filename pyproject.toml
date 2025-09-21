@@ -1,0 +1,9 @@
+[project]
+name = "coqui"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11.13"
+dependencies = [
+    "coqui-tts>=0.27.1",
+]
