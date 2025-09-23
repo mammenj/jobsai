@@ -1,18 +1,12 @@
-from TTS.api import TTS
-import torch
 import time
 
 start = time.perf_counter()
-device = "cuda" if torch.cuda.is_available() else "cpu"
-text1 = "[clears throat] Hi my name is John MAMMEN [sighs] -  I am a software developer. I love coding in Python.[laughs]"
-text = ""
 # with open("script.txt", "r") as file:
 # line = file.readline()
 # while line:
 # text += line
 # line = file.readline()
 
-tts = TTS("tts_models/multilingual/multi-dataset/bark").to(device)
 
 # cloning `lj` voice from `TTS/tts/utils/assets/tortoise/voices/lj`
 # with custom inference settings overriding defaults.
@@ -38,12 +32,12 @@ with open("script.txt", "r") as file:
     line = file.readline()
     while line:
         # text += line
-        count = count + 1
         audio_name = "out/bark_output_" + str(count) + ".wav"
         line = file.readline()
         if line.strip() != "" and line.__len__() > 3:
-            tts.tts_to_file(text=line, file_path=audio_name, speaker="jsmammen")
-            print("Done with ", audio_name)
+            # tts.tts_to_file(text=line, file_path=audio_name, speaker="jsmammen")
+            count = count + 1
+            print("line :: ", str(count), line)
 
 
 end = time.perf_counter()
