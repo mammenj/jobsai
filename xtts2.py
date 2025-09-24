@@ -36,18 +36,19 @@ def main():
             print("Processing line: ", line)
             count = count + 1
             audio_name = getName(line)
-            audio_path = f"out/xtts2/{count:03d}-{audio_name}.wav"
+            audio_path = f"out/leah/{count:03d}-{audio_name}.wav"
 
-            line = file.readline()
+            # line = file.readline()
             if line.strip() != "" and line.__len__() > 3:
                 tts.tts_to_file(
                     text=line,
                     file_path=audio_path,
-                    speaker="newjsmammen",
+                    speaker="leah",
                     language="en",
                     split_sentences=False,
                 )
-                print("Done with ", audio_name)
+                print("Done with ", audio_path)
+            line = file.readline()
 
     end = time.perf_counter()
     print(f"Execution time: {end - start:0.4f} seconds")
